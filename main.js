@@ -1,6 +1,7 @@
+// wait until page has completely loaded to execute logic
 $(document).ready(function() {
 
-	// define the trainer class to store pokemon object
+	// define trainer class to store pokemon object
 	class Trainer {
 		constructor(name, lvl, exp) {
 			this.name = name;
@@ -8,11 +9,11 @@ $(document).ready(function() {
 			this.exp = exp;
 			this.myPokemon = [];
 		}	
-		// method that returns an array of pokemon objects
+		// method to return an array of trainer's pokemon
 		all() {
 			return this.myPokemon;
 		}
-		// method that searchs for and returns a pokemon object with data
+		// method to search for and return a pokemon object with data
 		get(name) {
 			for (let i = 0; i < this.myPokemon.length; i++){
 	 			let pokemonName = this.myPokemon[i].name;
@@ -23,7 +24,6 @@ $(document).ready(function() {
 			return false;
 		}
 	}
-
 
 	// define the pokemon class
 	class Pokemon {
@@ -38,21 +38,19 @@ $(document).ready(function() {
 		}
 	}
 
-
-	// function that takes the pokemon name and id# to call data
+	// function to get data and push it to trainer object
 	function loadInfo(name, id) {
-		// get data - switched to github due to inconsistent API
 		let apiOriginal = 'https://pokeapi.co/api/v2/pokemon/' + id + '/';
 		let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
+		// get api data
 		axios.get(apiUrl)		
- 		// once loaded then run function
+ 		// once loaded, run function and push result
 		.then(function(response) {
 			let abilitiesApi = response.data.abilities;
 			let abilitiesArr = [];
 			for (let i = 0; i < abilitiesApi.length; i++) {
 				abilitiesArr.push(abilitiesApi[i].ability.name);
 			}
-			// define pokemon object
 			let info = {
 				'name': response.data.name,
 				'id': response.data.id,
@@ -62,10 +60,9 @@ $(document).ready(function() {
 				'defense': response.data.stats[3].base_stat,
 				'abilities': abilitiesArr
 			}
-			// push pokemon object to trainer pokemon list
 			silverdragonia.myPokemon.push(info);
 		})
-		// catch if data doesn't load, deactivate button
+		// catch if data doesn't load, show warning button, deactivate button
 		.catch(function(error) {
 			$('#goBtnImg').attr('src', 'img/pokeballError.png');
 			$('#goBtn').attr('disabled', 'disabled');
@@ -73,13 +70,12 @@ $(document).ready(function() {
 		});
 	}
 
-	// function that takes the pokemon name to call data
+	// function to call bio data from different source to display
  	function loadBio(name) {
-		// get data
 	 	let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/bio.json';
 	 	axios.get(apiUrl)
 	 	.then(function(response) {
-	 		// look for pokemon's name and return the data
+	 		// look for pokemon name and display data
 	 		for (let i = 0; i < response.data.length; i++) {
 	 			if (response.data[i].name == name) {
 	 				let evolvesInto = response.data[i].evolves_into;
@@ -89,14 +85,16 @@ $(document).ready(function() {
 	 			}
 	 		}
 	 	})
-	 	// catch if data doesn't load, show error
+	 	// catch if data doesn't load, show warning button, deactivate button
 	 	.catch(function(error) {
 			$('#' + name + 'Img').attr('src','img/error.png');
+			$('#' + name + 'Btn').attr('disabled', 'disabled');
 			$('#' + name + 'Text').text('Error, please try again later!');
+			$('#info').hide();
 		});
 	 };
 
-	// define new trainer and pokemon
+	// define new trainer and pokemon objects
 	let silverdragonia = new Trainer('silverdragonia', 10, 9000);
 	let bulbasaur = new Pokemon('bulbasaur', 1);
 	let charmander = new Pokemon('charmander', 4);
@@ -107,7 +105,6 @@ $(document).ready(function() {
 	loadInfo(charmander,4);
 	loadInfo(squirtle,7);
 
-	// define html elements
 	let goBtn = $('#goBtn');
 	let intro = $('#intro');
 	let pokemonSelect = $('#pokemonSelect');
@@ -127,12 +124,12 @@ $(document).ready(function() {
 	let abilities = $('#abilities');
 	let evolution = $('#evolution');
 	let img = $('#img');
-	let display = $('.info');
+	let info = $('.info');
 	let statImg = $('#statImg');
 	let closeBtn = $('#closeBtn');
 
-	// hide all data display on load
-	display.hide();
+	// hide all data displays by default
+	info.hide();
 	pokemonSelect.hide();
 	trainerRow.hide();
 
@@ -141,7 +138,7 @@ $(document).ready(function() {
     	return str.charAt(0).toUpperCase() + str.slice(1);
 	}
 	
-	// function that takes pokemon name and updates html display
+	// function to updates html display with pokemon info
 	function updateHtml(pokemon){
 		let myPokemon = silverdragonia.get(pokemon);
 			name.text(capitalize(myPokemon.name));
@@ -151,16 +148,16 @@ $(document).ready(function() {
 			attack.text(myPokemon.attack);
 			defense.text(myPokemon.defense);
 			abilities.text(myPokemon.abilities);
-			display.show(2000);
+			info.show(2000);
 	}
 
-	// call both functions in one pass
-	function run(pokemon) {
+	// function to call both get functions with one name
+	function displayData(pokemon) {
 		updateHtml(pokemon);
 		loadBio(pokemon);
 	};
 
-	// listen for start button click
+	// listen for go button click
 	goBtn.click(function() {
 		// load trainer info
 		trainerName.text(capitalize(silverdragonia.name));
@@ -173,20 +170,20 @@ $(document).ready(function() {
 		trainerRow.show(2000);
 	});
 	
-	// listen for pokemon button clicks and run funcations
+	// listen for pokemon button clicks and run functions
 	bulbasaurBtn.click(function() {
-		run('bulbasaur');
+		displayData('bulbasaur');
 	});
 	charmanderBtn.click(function() {
-		run('charmander');
+		displayData('charmander');
 	});
 	squirtleBtn.click(function() {
-		run('squirtle');
+		displayData('squirtle');
 	});
 
 	// listen for close button click
 	closeBtn.click(function() {
-		display.hide(1000);
+		info.hide(1000);
 	});
 
 });
