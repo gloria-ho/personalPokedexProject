@@ -42,8 +42,9 @@ $(document).ready(function() {
 	// function that takes the pokemon name and id# to call api
 	function loadInfo(name, id) {
 		// get API data - switched to github due to inconsistent API
-		// axios.get('https://pokeapi.co/api/v2/pokemon/' + id + '/')
-		axios.get('https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json') 		
+		let apiOriginal = 'https://pokeapi.co/api/v2/pokemon/' + id + '/';
+		let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
+		axios.get(apiUrl)		
  		// once loaded then run function
 		.then(function(response) {
 			let abilitiesApi = response.data.abilities;
@@ -64,15 +65,20 @@ $(document).ready(function() {
 			// push pokemon object to trainer pokemon list
 			silverdragonia.myPokemon.push(info);
 		})
+		// catch if api doesn't load, deactivate button
 		.catch(function(error) {
-			alert('Oh no! Looks like we have a problem- ' + error);
+			$('#goBtnImg').attr('src', 'img/pokeballError.png');
+			$('#goBtn').attr('disabled', 'disabled');
+			$('#goBtnText').text('Oh no, error loading data! Please try again later.');
+
 		});
 
 	}
 	// function that takes the pokemon name to call custom api
  	function loadBio(name) {
 		// get custom api
-	 	axios.get('https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/bio.json')
+	 	let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/bio.json';
+	 	axios.get(apiUrl)
 	 	.then(function(response) {
 	 		// look for pokemon's name and return the data
 	 		for (let i = 0; i < response.data.length; i++) {
@@ -84,6 +90,11 @@ $(document).ready(function() {
 	 			}
 	 		}
 	 	})
+	 	// catch if data doesn't load, show error
+	 	.catch(function(error) {
+			$('#' + name + 'Img').attr('src','img/error.png');
+			$('#' + name + 'Text').text('Error, please try again later!');
+		});
 	 };
 
 	// define new trainer and pokemon
