@@ -1,4 +1,4 @@
-// wait until page has completely loaded to execute logic test
+// wait until page has completely loaded to execute logic
 $(document).ready(function() {
 
 	// define trainer class to store pokemon object
