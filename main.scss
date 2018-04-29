@@ -2,7 +2,7 @@ $font: 'VT323', serif;
 $mainTextColor: #000;
 $warningColor: #DD0F0F;
 $highlightTextColor: #fff;
-$cardBackground: rgba(255, 255, 255, .6);
+$cardBackground: rgba(255, 255, 255, .7);
 $mainBorder: 1px solid $mainTextColor;
 @mixin standardBorder() {
 	border: $mainBorder;
