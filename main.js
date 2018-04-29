@@ -43,39 +43,42 @@ $(document).ready(function() {
 	function loadInfo(name, id) {
 		// get API data - switched to github due to inconsistent API
 		// axios.get('https://pokeapi.co/api/v2/pokemon/' + id + '/')
-		axios.get('https://raw.githubusercontent.com/silverdragonia/nycda_sei_apr_2018/master/assignments/personalPokedex/api/' + id + '.json') 		
+		axios.get('https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json') 		
  		// once loaded then run function
-		.then(function(result) {
-			let abilitiesApi = result.data.abilities;
+		.then(function(response) {
+			let abilitiesApi = response.data.abilities;
 			let abilitiesArr = [];
 			for (let i = 0; i < abilitiesApi.length; i++) {
 				abilitiesArr.push(abilitiesApi[i].ability.name);
 			}
 			// define pokemon object
 			let info = {
-				'name': result.data.name,
-				'id': result.data.id,
-				'img': result.data.sprites.front_shiny,
-				'hp': result.data.stats[5].base_stat,
-				'attack': result.data.stats[4].base_stat,
-				'defense': result.data.stats[3].base_stat,
+				'name': response.data.name,
+				'id': response.data.id,
+				'img': response.data.sprites.front_shiny,
+				'hp': response.data.stats[5].base_stat,
+				'attack': response.data.stats[4].base_stat,
+				'defense': response.data.stats[3].base_stat,
 				'abilities': abilitiesArr
 			}
 			// push pokemon object to trainer pokemon list
 			silverdragonia.myPokemon.push(info);
+		})
+		.catch(function(error) {
+			alert('Oh no! Looks like we have a problem- ' + error);
 		});
+
 	}
 	// function that takes the pokemon name to call custom api
  	function loadBio(name) {
 		// get custom api
-	 	axios.get('https://raw.githubusercontent.com/silverdragonia/nycda_sei_apr_2018/master/assignments/personalPokedex/api/bio.json')
-	 	.then(function(result) {
-	 		console.log(result);
+	 	axios.get('https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/bio.json')
+	 	.then(function(response) {
 	 		// look for pokemon's name and return the data
-	 		for (let i = 0; i < result.data.length; i++) {
-	 			if (result.data[i].name == name) {
-	 				let evolvesInto = result.data[i].evolves_into;
-		 			let	bioText = result.data[i].bio;
+	 		for (let i = 0; i < response.data.length; i++) {
+	 			if (response.data[i].name == name) {
+	 				let evolvesInto = response.data[i].evolves_into;
+		 			let	bioText = response.data[i].bio;
 		 			evolution.text(capitalize(evolvesInto));
 		 			bio.text(bioText);
 	 			}
