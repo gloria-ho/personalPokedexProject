@@ -1,3 +1,11 @@
+let pokemonSelect = $('#pokemonSelect');
+let info = $('.info');
+let trainerRow = $('#trainerRow');
+// hide all data displays by default before loading
+info.hide();
+pokemonSelect.hide();
+trainerRow.hide();
+
 // wait until page has completely loaded to execute logic
 $(document).ready(function() {
 
@@ -107,8 +115,6 @@ $(document).ready(function() {
 
 	let goBtn = $('#goBtn');
 	let intro = $('#intro');
-	let pokemonSelect = $('#pokemonSelect');
-	let trainerRow = $('#trainerRow');
 	let trainerName = $('#trainerName');
 	let trainerLvl = $('#trainerLvl');
 	let trainerExp = $('#trainerExp');
@@ -124,14 +130,8 @@ $(document).ready(function() {
 	let abilities = $('#abilities');
 	let evolution = $('#evolution');
 	let img = $('#img');
-	let info = $('.info');
 	let statImg = $('#statImg');
 	let closeBtn = $('#closeBtn');
-
-	// hide all data displays by default
-	info.hide();
-	pokemonSelect.hide();
-	trainerRow.hide();
 
 	// function to return capitalized results for diplay
 	function capitalize(str) {
