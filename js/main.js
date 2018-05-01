@@ -1,13 +1,6 @@
-let pokemonSelect = $('#pokemonSelect');
-let info = $('.info');
-let trainerRow = $('#trainerRow');
-// hide all data displays by default before loading
-info.hide();
-pokemonSelect.hide();
-trainerRow.hide();
-
 // wait until page has completely loaded to execute logic
 $(document).ready(function() {
+
 
 	// define trainer class to store pokemon object
 	class Trainer {
@@ -132,7 +125,10 @@ $(document).ready(function() {
 	let img = $('#img');
 	let statImg = $('#statImg');
 	let closeBtn = $('#closeBtn');
-
+	let pokemonSelect = $('#pokemonSelect');
+	let info = $('.info');
+	let trainerRow = $('#trainerRow');
+	
 	// function to return capitalized results for diplay
 	function capitalize(str) {
     	return str.charAt(0).toUpperCase() + str.slice(1);
@@ -148,7 +144,8 @@ $(document).ready(function() {
 			attack.text(myPokemon.attack);
 			defense.text(myPokemon.defense);
 			abilities.text(myPokemon.abilities);
-			info.show(2000);
+			info.show(2000).css('display', 'flex');
+			// info.fadeIn(2000).css('display', 'flex');
 	}
 
 	// function to call both get functions with one name
@@ -165,9 +162,9 @@ $(document).ready(function() {
 		trainerExp.text(silverdragonia.exp);
 		trainerImg.attr('src', 'img/trainer.gif');
 		// hide intro and display pokedex
-		intro.hide(1000);
-		pokemonSelect.show(2000);
 		trainerRow.show(2000);
+		intro.fadeOut(500);
+		pokemonSelect.fadeIn(3500).css('display', 'flex');
 	});
 	
 	// listen for pokemon button clicks and run functions

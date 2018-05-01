@@ -13,7 +13,7 @@ $mainBorder: 1px solid $mainTextColor;
 body {
 	font-family: $font;
 	color: $mainTextColor;
-	background: url(img/pokeballBg.jpg) no-repeat fixed center;
+	background: url(../img/pokeballBg.jpg) no-repeat fixed center;
 }
 
 body, .card {
@@ -32,6 +32,10 @@ body, button:hover, .goBtn, .closeBtn {
 	text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 h1, button,  {
 	color: $highlightTextColor;
 }
@@ -41,8 +45,7 @@ button:hover, .goBtn {
 }
 
 p {
-	margin: 5px;
-	font-size: 25px; 
+	margin: 5px; 
 }
 
 h1 {
@@ -57,7 +60,7 @@ h4 {
 	font-size: 30px;
 }
 
-button {
+p, button {
 	font-size: 25px;
 }
 

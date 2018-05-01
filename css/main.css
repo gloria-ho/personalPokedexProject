@@ -1,7 +1,7 @@
 body {
   font-family: "VT323", serif;
   color: #000;
-  background: url(img/pokeballBg.jpg) no-repeat fixed center;
+  background: url(../img/pokeballBg.jpg) no-repeat fixed center;
 }
 
 body, .card {
@@ -20,6 +20,10 @@ body, button:hover, .goBtn, .closeBtn {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
 h1, button {
   color: #fff;
 }
@@ -30,7 +34,6 @@ button:hover, .goBtn {
 
 p {
   margin: 5px;
-  font-size: 25px;
 }
 
 h1 {
@@ -45,7 +48,7 @@ h4 {
   font-size: 30px;
 }
 
-button {
+p, button {
   font-size: 25px;
 }
 
