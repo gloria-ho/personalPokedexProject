@@ -83,8 +83,7 @@ button, .closeBtn {
 	border: 1px solid transparent;    
 }
 
-button:hover, .closeBtn{
-	background-color: $cardBackground;
+button:hover, .closeBtn {
 	animation: none;
 	cursor: pointer;
 }
@@ -93,11 +92,33 @@ button:focus {
 	outline: none;
 }
 
+button:hover,.card {
+    background-color: $cardBackground;
+}
+
 .introImg, .statImg {
 	height: auto;
 	border-radius: 10px;
 }
 
+.btn {
+    margin: 5px 0;
+}
+
+.closeBtn {
+    position: absolute;
+    background: transparent;
+}
+
+.pokemonSelect {
+    margin: 5px auto 15px;
+}
+
+.statImg, .trainerImg, .introImg {
+    max-width: 100%;
+}
+
+// animated buttons
 .goBtn {
 	top: 15%;
 	right: 10%;
@@ -119,26 +140,6 @@ button:focus {
 	animation-delay: 1.6s;
 }
 
-.btn {
-	margin: 5px 0;
-}
-
-.closeBtn {
-	position: absolute;
-	background: transparent;
-}
-
-.card {
-	background-color: $cardBackground;
-}
-
-.pokemonSelect {
-	margin: 5px auto 15px;
-}
-
-.statImg, .trainerImg, .introImg {
-	max-width: 100%;
-}
 
 // shake animation for buttons
 @keyframes shake {
