@@ -42,9 +42,9 @@ $(document).ready(function() {
 	// function to get data and push it to trainer object
 	function loadInfo(name, id) {
 		let apiOriginal = 'https://pokeapi.co/api/v2/pokemon/' + id + '/';
-		let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
+		let apiGitHub = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
 		// get api data
-		axios.get(apiUrl)		
+		axios.get(apiOriginal)		
  		// once loaded, run function and push result
 		.then(function(response) {
 			let abilitiesApi = response.data.abilities;
