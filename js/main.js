@@ -1,7 +1,6 @@
 // wait until page has completely loaded to execute logic
 $(document).ready(function() {
 
-
 	// define trainer class to store pokemon object
 	class Trainer {
 		constructor(name, lvl, exp) {
@@ -44,9 +43,9 @@ $(document).ready(function() {
 		let apiOriginal = 'https://pokeapi.co/api/v2/pokemon/' + id + '/';
 		let apiGitHub = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
 		// get api data
-		axios.get(apiOriginal)		
- 		// once loaded, run function and push result
-		.then(function(response) {
+		axios.get(apiOriginal)
+		// once loaded, run function and push result
+		.then(response => {
 			let abilitiesApi = response.data.abilities;
 			let abilitiesArr = [];
 			for (let i = 0; i < abilitiesApi.length; i++) {
@@ -63,8 +62,8 @@ $(document).ready(function() {
 			}
 			silverdragonia.myPokemon.push(info);
 		})
-		// catch if data doesn't load, show warning button, deactivate button
-		.catch(function(error) {
+		// catch if data doesn't load, show warning, deactivate button
+		.catch(error => {
 			$('#goBtnImg').attr('src', 'img/pokeballError.png');
 			$('#goBtn').attr('disabled', 'disabled');
 			$('#goBtnText').text('Oh no, error loading data! Please try again later.');
@@ -75,7 +74,7 @@ $(document).ready(function() {
  	function loadBio(name) {
 	 	let apiUrl = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/bio.json';
 	 	axios.get(apiUrl)
-	 	.then(function(response) {
+	 	.then(response => {
 	 		// look for pokemon name and display data
 	 		for (let i = 0; i < response.data.length; i++) {
 	 			if (response.data[i].name == name) {
@@ -86,8 +85,8 @@ $(document).ready(function() {
 	 			}
 	 		}
 	 	})
-	 	// catch if data doesn't load, show warning button, deactivate button
-	 	.catch(function(error) {
+	 	// catch if data doesn't load, show warning, deactivate button
+	 	.catch(error => {
 			$('#' + name + 'Img').attr('src','img/error.png');
 			$('#' + name + 'Btn').attr('disabled', 'disabled');
 			$('#' + name + 'Text').text('Error, please try again later!');
@@ -137,24 +136,30 @@ $(document).ready(function() {
 	// function to updates html display with pokemon info
 	function updateHtml(pokemon){
 		let myPokemon = silverdragonia.get(pokemon);
-			name.text(capitalize(myPokemon.name));
-			statImg.attr('src', 'img/' + pokemon + 'Bg.jpg');
-			img.attr('src', myPokemon.img);
-			hp.text(myPokemon.hp);
-			attack.text(myPokemon.attack);
-			defense.text(myPokemon.defense);
-			abilities.text(myPokemon.abilities);
-			info.show(2000).css('display', 'flex');
-			// info.fadeIn(2000).css('display', 'flex');
+		name.text(capitalize(myPokemon.name));
+		statImg.attr('src', 'img/' + pokemon + 'Bg.jpg');
+		img.attr('src', myPokemon.img);
+		hp.text(myPokemon.hp);
+		attack.text(myPokemon.attack);
+		defense.text(myPokemon.defense);
+		abilities.text(myPokemon.abilities);
+		info.show(1500).css('display', 'flex');
 	}
 
-	// function to call both get functions with one name
+	// function to call both get functions using one name
+	// if not ready, warn user to try again
 	function displayData(pokemon) {
+		let targetIcon = '#' + pokemon + 'Img';
+		let targetText = '#' + pokemon + 'Text';
+		$(targetIcon).attr('src', 'img/loadingWheel.gif').css('maxWidth', '76px');
+		$(targetText).text('Not ready! Please try again...');
 		updateHtml(pokemon);
 		loadBio(pokemon);
+		$(targetIcon).attr('src', 'img/' + pokemon + '.png');
+		$(targetText).text(capitalize(pokemon));
 	};
 
-	// listen for go button click
+	// listen for go button click at intro
 	goBtn.click(function() {
 		// load trainer info
 		trainerName.text(capitalize(silverdragonia.name));
@@ -162,7 +167,7 @@ $(document).ready(function() {
 		trainerExp.text(silverdragonia.exp);
 		trainerImg.attr('src', 'img/trainer.gif');
 		// hide intro and display pokedex
-		trainerRow.show(2000);
+		trainerRow.show(3000);
 		intro.fadeOut(500);
 		pokemonSelect.fadeIn(3500).css('display', 'flex');
 	});
@@ -178,7 +183,7 @@ $(document).ready(function() {
 		displayData('squirtle');
 	});
 
-	// listen for close button click
+	// listen for close button click and hide display
 	closeBtn.click(function() {
 		info.hide(1000);
 	});
