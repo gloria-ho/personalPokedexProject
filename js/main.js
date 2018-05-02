@@ -43,7 +43,7 @@ $(document).ready(function() {
 		let apiOriginal = 'https://pokeapi.co/api/v2/pokemon/' + id + '/';
 		let apiGitHub = 'https://raw.githubusercontent.com/silverdragonia/personalPokedexProject/master/api/' + id + '.json';
 		// get api data
-		axios.get(apiOriginal)
+		axios.get(apiGitHub)
 		// once loaded, run function and push result
 		.then(response => {
 			let abilitiesApi = response.data.abilities;
