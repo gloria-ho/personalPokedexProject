@@ -159,14 +159,19 @@ $(document).ready(function() {
 		$(targetText).text(capitalize(pokemon));
 	};
 
+	// function to update trainer info display
+	function showTrainer(trainer) {
+		// load trainer info
+		trainerName.text(capitalize(trainer.name));
+		trainerLvl.text(trainer.lvl);
+		trainerExp.text(trainer.exp);
+		trainerImg.attr('src', 'img/trainer.gif');
+	}
+
 	// listen for go button click at intro
 	goBtn.click(function() {
-		// load trainer info
-		trainerName.text(capitalize(silverdragonia.name));
-		trainerLvl.text(silverdragonia.lvl);
-		trainerExp.text(silverdragonia.exp);
-		trainerImg.attr('src', 'img/trainer.gif');
-		// hide intro and display pokedex
+		// call trainer info, hide intro, display pokedex
+		showTrainer(silverdragonia);
 		trainerRow.show(3000);
 		intro.fadeOut(500);
 		pokemonSelect.fadeIn(3500).css('display', 'flex');

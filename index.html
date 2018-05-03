@@ -8,17 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-	<!-- container -->
+
 	<div class="container pokedex">
-		<!-- row -->
+
 		<div class="row">
 			<div class="col-12"> 
 				<h1>Personal Pokedex</h1>
 			</div>
+			<!-- /.col-12 -->
 		</div>
-		<!-- /row -->
+		<!-- /.row -->
 
-		<!-- row -->
 		<div class="row intro" id="intro">
 			<div class="col-12">
 				<img src="img/pikachuBg.jpg" class="introImg"/>
@@ -27,10 +27,10 @@
 					<h2 id="goBtnText">Let's Go!</h2>
 				</button>
 			</div>
+			<!-- /#intro.col-12 -->
 		</div>
-		<!-- /row -->
+		<!-- /.row intro -->
 
-		<!-- row -->
 		<div id="pokemonSelect" class="row pokemonSelect hidden">
 			<div class="col-4">
 				<button id="bulbasaurBtn">
@@ -38,22 +38,24 @@
 					<span id="bulbasaurText">Bulbasaur</span>
 				</button>
 			</div>
+			<!-- /.col-4 -->
 			<div class="col-4">
 				<button id="charmanderBtn">
 					<img src="img/charmander.png" id="charmanderImg" class="charmanderImg block"/><br/>
 					<span id="charmanderText">Charmander</span>
 				</button>
 			</div>
+			<!-- /.col-4 -->
 			<div class="col-4">
 				<button id="squirtleBtn">
 					<img src="img/squirtle.png" id="squirtleImg" class="squirtleImg block"/><br/>
 					<span id="squirtleText">Squirtle</span>
 				</button>
+				<!-- /.col-4 -->
 			</div>
 		</div>
-		<!-- /row -->
+		<!-- /.row pokemonSelect hidden -->
 
-		<!-- row -->
 		<div id="info" class="row info hidden">
 			<div class="col-md-6">
 				<div class="card">
@@ -64,7 +66,9 @@
 						<p class="card-text" id="bio"></p>
 					</div>
 				</div>
+				<!-- /.card -->
 			</div>
+			<!-- /.col-md-6 -->
 
 			<div class="col-md-6">
 				<div class="card">
@@ -80,11 +84,12 @@
 						<img src="" id="statImg" class="statImg"/>
 					</div>
 				</div>
+				<!-- /.card -->
 			</div>
+			<!-- /.col-md-6 -->
 		</div>
-		<!-- /row -->
+		<!-- /.row info hidden -->
 
-		<!-- row -->
 		<div id="trainerRow" class="row hidden">
 			<div class="col-12">
 				<div class="card">
@@ -95,18 +100,23 @@
 								<p><span class="bold">Trainer Level: </span><span id="trainerLvl"></span></p>
 								<p><span class="bold">Trainer Experience: </span><span id="trainerExp"></span></p>
 							</div>
+							<!-- /.col-md-6 -->
 							<div class="col-md-6">
 								<img src="" id="trainerImg" class="trainerImg"/>
 							</div>
+							<!-- /.col-md-6 -->
 						</div>
+						<!-- /.row -->
 					</div>
 				</div>
+				<!-- /.card -->
 			</div>
+			<!-- /.col-md-12 -->
 		</div>
-		<!-- /row-->
+		<!-- /.row hidden-->
 
 	</div>
-	<!-- /container -->
+	<!-- /.container pokedex -->
 
 	<!-- jquey, javascript, axios, ajax -->
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
