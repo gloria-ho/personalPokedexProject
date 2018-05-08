@@ -5,31 +5,31 @@ $highlightTextColor: #fff;
 $cardBackground: rgba(255, 255, 255, .7);
 $mainBorder: 1px solid $mainTextColor;
 @mixin standardBorder() {
-	border: $mainBorder;
-	border-radius: 10px;
+    border: $mainBorder;
+    border-radius: 10px;
 }
 
 
 body {
-	font-family: $font;
-	color: $mainTextColor;
-	background: url(../img/pokeballBg.jpg) no-repeat fixed center;
+    font-family: $font;
+    color: $mainTextColor;
+    background: url(../img/pokeballBg.jpg) no-repeat fixed center;
 }
 
 body, .card {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 body, button:hover, .goBtn, .closeBtn {
-	padding: 0;
+    padding: 0;
 }
 
 .bold, h1, h4 {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .center, h1, h4, .intro, .pokemonSelect, .closeBtn {
-	text-align: center;
+    text-align: center;
 }
 
 .hidden {
@@ -37,59 +37,59 @@ body, button:hover, .goBtn, .closeBtn {
 }
 
 h1, button,  {
-	color: $highlightTextColor;
+    color: $highlightTextColor;
 }
 
 button:hover, .goBtn {
-	color: $mainTextColor;
+    color: $mainTextColor;
 }
 
 p {
-	margin: 5px; 
+    margin: 5px; 
 }
 
 h1 {
-	font-size: 60px;
+    font-size: 60px;
 }
 
 h2 {
-	font-size: 50px;
+    font-size: 50px;
 }
 
 h4 {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 p, button {
-	font-size: 25px;
+    font-size: 25px;
 }
 
 .pokedex, button:hover, .card {
-	@include standardBorder();
+    @include standardBorder();
 }
 
 .pokedex {
-	width: 90%;
-	margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .container {
-	width: 100%;
-	padding: 10px;
+    width: 100%;
+    padding: 10px;
 }
 
 button, .closeBtn {
-	background-color: transparent;
-	border: 1px solid transparent;    
+    background-color: transparent;
+    border: 1px solid transparent;    
 }
 
 button:hover, .closeBtn {
-	animation: none;
-	cursor: pointer;
+    animation: none;
+    cursor: pointer;
 }
 
 button:focus {
-	outline: none;
+    outline: none;
 }
 
 button:hover,.card {
@@ -97,8 +97,8 @@ button:hover,.card {
 }
 
 .introImg, .statImg {
-	height: auto;
-	border-radius: 10px;
+    height: auto;
+    border-radius: 10px;
 }
 
 .btn {
@@ -120,75 +120,75 @@ button:hover,.card {
 
 // animated buttons
 .goBtn {
-	top: 15%;
-	right: 10%;
-	position: absolute;
-	animation: shake 2.5s infinite; 
+    top: 15%;
+    right: 10%;
+    position: absolute;
+    animation: shake 2.5s infinite; 
 }
 
 .bulbasaurImg {
-	animation: shake 6s infinite;	
+    animation: shake 6s infinite;   
 }
 
 .charmanderImg {
-	animation: shake 6s infinite; 
-	animation-delay: .8s;
+    animation: shake 6s infinite; 
+    animation-delay: .8s;
 }
 
 .squirtleImg {
-	animation: shake 6s infinite; 
-	animation-delay: 1.6s;
+    animation: shake 6s infinite; 
+    animation-delay: 1.6s;
 }
 
 
 // shake animation for buttons
 @keyframes shake {
     0% {
-    	transform: translate(1px, 1px) 
-    	rotate(0deg);
+        transform: translate(1px, 1px) 
+        rotate(0deg);
     }
     2% {
-    	transform: translate(-1px, -2px)
-    	rotate(-1deg);
+        transform: translate(-1px, -2px)
+        rotate(-1deg);
     }
     4% {
-    	transform: translate(-3px, 0px)
-    	rotate(1deg);
+        transform: translate(-3px, 0px)
+        rotate(1deg);
     }
     6% {
-    	transform: translate(3px, 2px)
-    	rotate(0deg);
+        transform: translate(3px, 2px)
+        rotate(0deg);
     }
     8% {
-    	transform: translate(1px, -1px)
-    	rotate(1deg);
+        transform: translate(1px, -1px)
+        rotate(1deg);
     }
     10% {
-    	transform: translate(-1px, 2px)
-    	rotate(-1deg);
+        transform: translate(-1px, 2px)
+        rotate(-1deg);
     }
     12% {
-    	transform: translate(-3px, 1px)
-    	rotate(0deg);
+        transform: translate(-3px, 1px)
+        rotate(0deg);
     }
     14% {
-    	transform: translate(3px, 1px)
-    	rotate(-1deg);
+        transform: translate(3px, 1px)
+        rotate(-1deg);
     }
     16% {
-    	transform: translate(-1px, -1px)
-    	rotate(1deg);
+        transform: translate(-1px, -1px)
+        rotate(1deg);
     }
     18% {
-    	transform: translate(1px, 2px)
-    	rotate(0deg);
+        transform: translate(1px, 2px)
+        rotate(0deg);
     }
     20% {
-    	transform: translate(1px, -2px)
-    	rotate(-1deg);
+        transform: translate(1px, -2px)
+        rotate(-1deg);
     }
     22% {
-    	transform: translate(1px, 1px)
-    	rotate(0deg);
+        transform: translate(1px, 1px)
+        rotate(0deg);
     }
 }

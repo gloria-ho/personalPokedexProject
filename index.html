@@ -1,127 +1,193 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Personal Pokedex</title>
-	<!-- google fonts, bootstrap, css style sheet -->
-	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
-</head>
-<body>
-
-	<div class="container pokedex">
-
-		<div class="row">
-			<div class="col-12"> 
-				<h1>Personal Pokedex</h1>
-			</div>
-			<!-- /.col-12 -->
-		</div>
-		<!-- /.row -->
-
-		<div class="row intro" id="intro">
-			<div class="col-12">
-				<img src="img/pikachuBg.jpg" class="introImg"/>
-				<button id="goBtn" class="goBtn">
-					<img src="img/pokeball.png" id="goBtnImg" class="goBtnImg"/>
-					<h2 id="goBtnText">Let's Go!</h2>
-				</button>
-			</div>
-			<!-- /#intro.col-12 -->
-		</div>
-		<!-- /.row intro -->
-
-		<div id="pokemonSelect" class="row pokemonSelect hidden">
-			<div class="col-4">
-				<button id="bulbasaurBtn">
-					<img src="img/bulbasaur.png" id="bulbasaurImg" class="bulbasaurImg block"/><br/>
-					<span id="bulbasaurText">Bulbasaur</span>
-				</button>
-			</div>
-			<!-- /.col-4 -->
-			<div class="col-4">
-				<button id="charmanderBtn">
-					<img src="img/charmander.png" id="charmanderImg" class="charmanderImg block"/><br/>
-					<span id="charmanderText">Charmander</span>
-				</button>
-			</div>
-			<!-- /.col-4 -->
-			<div class="col-4">
-				<button id="squirtleBtn">
-					<img src="img/squirtle.png" id="squirtleImg" class="squirtleImg block"/><br/>
-					<span id="squirtleText">Squirtle</span>
-				</button>
-				<!-- /.col-4 -->
-			</div>
-		</div>
-		<!-- /.row pokemonSelect hidden -->
-
-		<div id="info" class="row info hidden">
-			<div class="col-md-6">
-				<div class="card">
-					<img src="img/delete.png" id="closeBtn" class="closeBtn"/>
-					<img class="card-img-top center" id="img" src="" alt="" />
-					<div class="card-body">
-						<h4 class="card-title"><span id="pokemonName">Pokemon Name</span></h4>
-						<p class="card-text" id="bio"></p>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			<!-- /.col-md-6 -->
-
-			<div class="col-md-6">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Pokemon Stats</h4>
-						<p class="card-text"><span class="bold">HP: </span><span id="hp"> </span></p>
-						<p class="card-text"><span class="bold">Attack: </span><span id="attack"> </span></p>
-						<p class="card-text"><span class="bold">Defense: </span><span id="defense"> </span></p>
-						<p class="card-text"><span class="bold">Abilities: </span><span id="abilities"> </span></p>
-						<p class="card-text"><span class="bold">Evolves Into: </span><span id="evolution"> </span></p>
-					</div>
-					<div class="card-img-bottom">
-						<img src="" id="statImg" class="statImg"/>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			<!-- /.col-md-6 -->
-		</div>
-		<!-- /.row info hidden -->
-
-		<div id="trainerRow" class="row hidden">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-6">
-								<p><span class="bold">Trainer: </span><span id="trainerName"></span></p>
-								<p><span class="bold">Trainer Level: </span><span id="trainerLvl"></span></p>
-								<p><span class="bold">Trainer Experience: </span><span id="trainerExp"></span></p>
-							</div>
-							<!-- /.col-md-6 -->
-							<div class="col-md-6">
-								<img src="" id="trainerImg" class="trainerImg"/>
-							</div>
-							<!-- /.col-md-6 -->
-						</div>
-						<!-- /.row -->
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			<!-- /.col-md-12 -->
-		</div>
-		<!-- /.row hidden-->
-
-	</div>
-	<!-- /.container pokedex -->
-
-	<!-- jquey, javascript, axios, ajax -->
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
+    <head>
+        <title>
+            Personal Pokedex
+        </title>
+        <!-- google fonts, bootstrap, css style sheet -->
+        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+            <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" rel="stylesheet"/>
+            <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        </link>
+    </head>
+    <body>
+        <div class="container pokedex">
+            <div class="row">
+                <div class="col-12">
+                    <h1>
+                        Personal Pokedex
+                    </h1>
+                </div>
+                <!-- /.col-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row intro" id="intro">
+                <div class="col-12">
+                    <img class="introImg" src="img/pikachuBg.jpg"/>
+                    <button class="goBtn" id="goBtn">
+                        <img class="goBtnImg" id="goBtnImg" src="img/pokeball.png"/>
+                        <h2 id="goBtnText">
+                            Let's Go!
+                        </h2>
+                    </button>
+                </div>
+                <!-- /#intro.col-12 -->
+            </div>
+            <!-- /.row intro -->
+            <div class="row pokemonSelect hidden" id="pokemonSelect">
+                <div class="col-4">
+                    <button id="bulbasaurBtn">
+                        <img class="bulbasaurImg block" id="bulbasaurImg" src="img/bulbasaur.png"/>
+                        <br/>
+                        <span id="bulbasaurText">
+                            Bulbasaur
+                        </span>
+                    </button>
+                </div>
+                <!-- /.col-4 -->
+                <div class="col-4">
+                    <button id="charmanderBtn">
+                        <img class="charmanderImg block" id="charmanderImg" src="img/charmander.png"/>
+                        <br/>
+                        <span id="charmanderText">
+                            Charmander
+                        </span>
+                    </button>
+                </div>
+                <!-- /.col-4 -->
+                <div class="col-4">
+                    <button id="squirtleBtn">
+                        <img class="squirtleImg block" id="squirtleImg" src="img/squirtle.png"/>
+                        <br/>
+                        <span id="squirtleText">
+                            Squirtle
+                        </span>
+                    </button>
+                    <!-- /.col-4 -->
+                </div>
+            </div>
+            <!-- /.row pokemonSelect hidden -->
+            <div class="row info hidden" id="info">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="closeBtn" id="closeBtn" src="img/delete.png"/>
+                        <img alt="" class="card-img-top center" id="img" src=""/>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <span id="pokemonName">
+                                    Pokemon Name
+                                </span>
+                            </h4>
+                            <p class="card-text" id="bio">
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Pokemon Stats
+                            </h4>
+                            <p class="card-text">
+                                <span class="bold">
+                                    HP:
+                                </span>
+                                <span id="hp">
+                                </span>
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">
+                                    Attack:
+                                </span>
+                                <span id="attack">
+                                </span>
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">
+                                    Defense:
+                                </span>
+                                <span id="defense">
+                                </span>
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">
+                                    Abilities:
+                                </span>
+                                <span id="abilities">
+                                </span>
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">
+                                    Evolves Into:
+                                </span>
+                                <span id="evolution">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="card-img-bottom">
+                            <img class="statImg" id="statImg" src=""/>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row info hidden -->
+            <div class="row hidden" id="trainerRow">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>
+                                        <span class="bold">
+                                            Trainer:
+                                        </span>
+                                        <span id="trainerName">
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <span class="bold">
+                                            Trainer Level:
+                                        </span>
+                                        <span id="trainerLvl">
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <span class="bold">
+                                            Trainer Experience:
+                                        </span>
+                                        <span id="trainerExp">
+                                        </span>
+                                    </p>
+                                </div>
+                                <!-- /.col-md-6 -->
+                                <div class="col-md-6">
+                                    <img class="trainerImg" id="trainerImg" src=""/>
+                                </div>
+                                <!-- /.col-md-6 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-12 -->
+            </div>
+            <!-- /.row hidden-->
+        </div>
+        <!-- /.container pokedex -->
+        <!-- jquey, javascript, axios, ajax -->
+        <script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="http://code.jquery.com/jquery-3.3.1.min.js">
+        </script>
+        <script src="js/main.js" type="text/javascript">
+        </script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+    </body>
 </html>
