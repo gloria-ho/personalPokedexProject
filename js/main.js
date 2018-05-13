@@ -25,6 +25,8 @@ $(document).ready(function() {
     }
     // define the pokemon class
     class Pokemon {
+
+        // Part 1: I would make this constructor take in a single object literal (see my note below)
         constructor(name, id, img, hp, attack, defense, abilities) {
             this.name = name;
             this.id = id;
@@ -52,14 +54,18 @@ $(document).ready(function() {
                     'name': response.data.name,
                     'id': response.data.id,
                     'img': response.data.sprites.front_shiny,
-                    'hp': response.data.stats[5].base_stat,
+                    'hp': response.data.stats[5].base_stat, // be careful when hard coding these index numbers if the API changes your code won't work.
                     'attack': response.data.stats[4].base_stat,
                     'defense': response.data.stats[3].base_stat,
                     'abilities': abilitiesArr
                 }
+
+                // Part 2: and then just pass this 'info' object into the constructor. 
                 silverdragonia.myPokemon.push(info);
             })
             // catch if data doesn't load, show warning, deactivate button
+
+            // I love this. nice work
             .catch(error => {
                 $('#goBtnImg').attr('src', 'img/pokeballError.png');
                 $('#goBtn').attr('disabled', 'disabled');
