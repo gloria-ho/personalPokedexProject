@@ -1,14 +1,25 @@
 # Personal Pokedex
 
+## Goal:
+
+To create a pokemon trainer showcase website that displays information focused around 3 pokemon chosen by the student using AJAX to retrieve said data. This project is focused on client side technologies.
+
+## Built With:
+* Object Oriented JavaScript
+* External APIs
+* AJAX
+* jQuery
+* HTML5
+* Sass
+* Bootstrap
+
 ## Features
 * Animated buttons
 * Eyecatching, responsive design
 * Retrieves data from Pokemon API
 * Throws error warning when Pokemon API does not load correctly
 
-## Goal:
 
-To create a pokemon trainer showcase website that displays information focused around 3 pokemon chosen by the student using AJAX to retrieve said data. This project is focused on client side technologies.
 
 ### Learning Objectives:
 
