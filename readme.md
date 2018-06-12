@@ -42,7 +42,7 @@ Try showing extra pieces of information such as:
 * and have this information be hidden by default and then have it display on a button click
 	* use an animation with the reveal
 
-## Completion Requirements:
+### Completion Requirements:
 
 A completed assignment should:
 
