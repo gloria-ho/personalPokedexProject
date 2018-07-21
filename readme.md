@@ -4,6 +4,9 @@
 
 To create a pokemon trainer showcase website that displays information focused around 3 pokemon chosen by the student using AJAX to retrieve said data. This project is focused on client side technologies.
 
+### Github Page:
+http://gh-personal-pokedex.herokuapp.com/index.html
+
 ## Built With:
 * Object Oriented JavaScript
 * External APIs
